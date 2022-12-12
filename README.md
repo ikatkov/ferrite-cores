@@ -2,9 +2,13 @@
 
 ## Measure and compute
  **Take measurements of the core**
+
 See [Jupyter notebook](FerriteCore-core4-fixtureA.ipynb)
+
 See [Jupyter notebook](FerriteCore-core4-fixtureB.ipynb)
+
 See [Jupyter notebook](FerriteCore-core5.ipynb)
+
 See [Jupyter notebook](inductor-sweep.ipynb)
 
 ## Theory
