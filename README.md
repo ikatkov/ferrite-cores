@@ -1,6 +1,9 @@
 # Salvaged ferrite cores characterization
 
 ## Measure and compute
+
+Notice that these measurements are for HF only. My VNA does not go below 50kHz.
+
  **Take measurements of the core**
 
 See [Jupyter notebook](FerriteCore-core4-fixtureA.ipynb)
@@ -18,7 +21,7 @@ It seems that typical ferrite manufacturers are
 [Fair-Rite](http://www.fair-rite.com)<br/>
 [Amidon](http://www.amidoncorp.com)
 
-**For poweder cores**
+**For powder cores**
 
 [Micrometals](http://www.micrometals.com)<br/>
 [Ferroxcube (Yageo)](http://www.yageo.com)<br/>
@@ -32,38 +35,36 @@ It seems that typical ferrite manufacturers are
 
 **Disadvantages of ferrite core inductors**
 
-* Core saturation can be a problem. A magnetic flux density of 0.4T brings saturation losses. Newer material like nanocrystaline have magnetic flux density of 1.2T 
+* Core saturation can be a problem. A magnetic flux density of 0.4T brings saturation losses. Newer materials like nanocrystalline have magnetic flux density of 1.2T 
 * The upper operating frequency is limited due to other (eddy current) core losses.
 * Temperature drift causes inductance change and can alter how a tuned filter might perform.
 
-Not very relevant for DIY winding, but different materials has different Curie Temperature point. Once exceeded, ferrite permanently loses it's magnetic properties.
+Not very relevant for DIY winding, but different materials have different Curie Temperature points. Once exceeded, ferrite permanently loses its magnetic properties.
 
 **Manganese Zinc Ferrite (MnZn)**
 
 Ideal for applications with an operating frequency of less than 5MHz. The impedance of these cores makes them suitable for inductors up to 70 MHz.
 
-MnZn material is conductive i.e. can scrape the coating off and measure conductivity with a multimeter. If there are a reading - it is the best indicator that the core is MnZn ferrite.
+MnZn material is conductive i.e. can scrape the coating off and measure conductivity with a multimeter. If there is a reading - it is the best indicator that the core is MnZn ferrite.
 MnZn has very high permutability, mu_initial in the range 1 .. 10k. Compare with a typical NiZn ferrites 50-800.
 
 **Nickel Zinc Ferrite (NiZn)** 
 
 Used in applications where frequencies range from 2MHz to several hundred MHz. NiZn is considered ideal for inductors above 70 MHz
-NiZn saturate at double Field Strength in comparison of MnZn 
+NiZn saturates at double Field Strength in comparison to MnZn 
 
 
-For low current - you want high permeability cores to keep dimensions small and number of
-widings low. As current gets higher and higher ferrite cores start to saturate. To prevent saturation you need fewer turns or smaller permeability. Fewer turns means smaller inductance. There is also resistive losses in the windings, too many turns that are needed to get target inductance might be too much resistance. You can increase the wire gauge, but then wires might not dimensionally fit into the toroid hole. You can do multiple layers, now stray capacitance shoots up and toroid inductor has self resonance frequnecy at lower and lower frequencies. At self resonance inductor looks like an open circuit.
-
-As temperature goes up ferite loses permeability (i.e. inductance goes down), bad for RF filters
+For low current - you want high permeability cores to keep dimensions small and the number of turns low. As the current gets higher and higher ferrite cores start to saturate. To prevent saturation you need fewer turns or smaller permeability. Fewer turns mean smaller inductance. There are also resistive losses in the windings, too many turns that are needed to get target inductance might be too much resistance. You can increase the wire gauge, but then wires might not dimensionally fit into the toroid hole. You can do multiple layers, now stray capacitance shoots up and the toroid inductor has a self-resonance frequency at lower and lower frequencies. At the self-resonance frequency, the inductor looks like an open circuit.
+As the temperature goes up ferrite loses permeability (i.e. inductance goes down), bad for RF filters
 
 **Powdered Iron cores**
 
-If you need temp stability, or lower loss or higher current till saturation you might trade give ferrite cores hight permeability (i.e. less loops needed for same inuctance) and go with powdered iron cores. These are the "classical" cores.
+If you need temp stability, or lower loss or higher current till saturation you might trade give ferrite cores high permeability (i.e. fewer loops needed for the same inductance) and go with powdered iron cores. These are the "classical" cores.
 
-Interestingly, due to lower losses, Powdered Iron cores has a much higher Q factor (150-250). See [Iron_Powder_Cores_for_High_Q_Inductors](Iron_Powder_Cores_for_High_Q_Inductors.pdf)
-Good thing to have for a “narrow-band” circuit - a filter, a tuned transformer, an oscillator. Another application is flux-coupled RF transformers that transfer high power (>100 watts) through the core, to minimize loss and heating. 
+Interestingly, due to lower losses, Powdered Iron cores have a much higher Q factor (150-250). See [Iron_Powder_Cores_for_High_Q_Inductors](Iron_Powder_Cores_for_High_Q_Inductors.pdf)
+Good thing to have for a “narrow-band” circuit - a filter, a tuned transformer, and an oscillator. Another application is flux-coupled RF transformers that transfer high power (>100 watts) through the core, to minimize loss and heating. 
 
-This is not the case with coax chokes, or transmission-line transformer, the power stays in the cable and does not travel through the core. Common mode power travek on the outside of the coax braid and the high impedance of the core is important so ferrite cores are better there.
+This is not the case with coax chokes, or transmission-line transformers, the power stays in the cable and does not travel through the core. Common mode power travel on the outside of the coax braid and the high impedance of the core is important so ferrite cores are better there.
 
 (In transmitting chokes made of coaxial cable wound on a core—a transmission-line transformer—the power stays in the cable and does not travel through the core. High impedance is the most important thing, so ferrite cores are used here.)
 
@@ -89,7 +90,7 @@ https://www.onallbands.com/powdered-iron-cores-how-do-they-compare-to-ferrite/
 
 ## Interesting findings
 
-Fixture leads add capacitance, compare measurements [FerriteCore-core4-fixtureA](FerriteCore-core4-fixtureA.ipynb) vs [FerriteCore-core4-fixtureB](FerriteCore-core4-fixtureB.ipynb). Due to crocodile clamps LC circtuit (2 loops over toroid + stray capacitance between loops + stray capacitance between clamps) move resonant frequency lower. When Z plot starts to dive really vertically - it's self resonant frequency. The whole circuit looks like an open circuit at this point.
+Fixture leads add capacitance, compare measurements [FerriteCore-core4-fixtureA](FerriteCore-core4-fixtureA.ipynb) vs [FerriteCore-core4-fixtureB](FerriteCore-core4-fixtureB.ipynb). Due to crocodile clamps LC circuit (2 loops over toroid + stray capacitance between loops + stray capacitance between clamps) move the resonant frequency lower. When the Z plot starts to dive vertically - it's the self-resonant frequency. The whole circuit looks like an open circuit at this point.
 
 
 
