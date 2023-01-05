@@ -1,8 +1,10 @@
 # Salvaged ferrite cores characterization
 
-## Measure and compute
-
 Notice that these measurements are for HF only. My VNA does not go below 50kHz.
+For power applications in SMPS, these calculations are ok as they operate at 100kHz-1MHz
+For power applications at 50/60Hz these can't be used.
+
+## Measure and compute
 
  **Take measurements of the core**
 
@@ -35,7 +37,7 @@ It seems that typical ferrite manufacturers are
 
 **Disadvantages of ferrite core inductors**
 
-* Core saturation can be a problem. A magnetic flux density of 0.4T brings saturation losses. Newer materials like nanocrystalline have magnetic flux density of 1.2T 
+* Core saturation can be a problem. A magnetic flux density of 0.4T brings saturation losses. Newer materials like nanocrystalline have the magnetic flux density of 1.2T 
 * The upper operating frequency is limited due to other (eddy current) core losses.
 * Temperature drift causes inductance change and can alter how a tuned filter might perform.
 
