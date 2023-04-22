@@ -105,3 +105,45 @@ https://www.everythingrf.com/community/what-is-self-resonant-frequency
 ## References
 
 https://owenduffy.net/blog/?p=16124
+
+
+## Other notes
+
+Rule of thumb for RFC chokes - present at least 500Ohm impedance at the lowest freq of operations. For a step-by-step approach to selecting an RF choke, use these steps:
+
+1. Make sure the DC current capability matches the required bias current.
+1. Select a sufficiently high inductance value. (Z = 2 * pi * f * L) Select an impedance (Z) that is much larger than the load resistance. 
+1. Decide the maximum allowable DC resistance so that the voltage drop on the inductor is small compared to the voltage swing of the amplifier stage.  A resistance of between 1 and 10 Ohms is usually OK.
+1. Select a small package size.
+1. Look for a low Q inductor (High L and small physical size usually means Low Q).
+1. Make sure the core material is useable in the frequency range of interest. 
+
+---
+
+Three general rules about the use of ferrites as chokes. 
+
+1.  More impedance is better.
+2.  All ferrite chokes should be designed to operate in the frequency range where their series equivalent resistance is large and their series equivalent reactance is small. 
+3.  These conditions are satisfied at or near the choke's resonant frequency. We do this by selecting a suitable material, core size, and number of turns. These rules apply to both single turn and multi-turn chokes, and they apply to chokes (but not transformers) used for transmitting as well. 
+
+--- 
+
+* For a typical RFC choke on the collector pin of a BJT, its inductance is in mH range, like ~1mH or so.
+
+* For ferrite beads - the longer the bead (dimensionally), the greater the impedance
+
+* A classic text (Soft Ferrites, Properties and Applications, by E. C. Snelling, published in 1969), shows that 
+... for any given material, the smaller the core, the higher will be the frequency of this resonance,
+and to a first approximation, the resonant frequency will double if the core dimension is halved.
+
+* For frequencies below resonance, inductance follows almost linearly N^2 ratio of turns to the inductance value
+
+* We see that µ varies with frequency and is complex, yet those who don't understand this often use a single number for µ. When a single number for µ is quoted, it is
+the value of µ at frequencies well below resonance, where losses are small and the graph of impedance is a straight line increasing linearly with frequency. 
+
+* There are two resonant freq for a ferrite inductor (choke), the first is trivial LC, the second is dimensional - standing wave in the ferrite. Second resonant freq is in Ghz range for a typical rf choke
+
+* When you look at the datasheet plots of RS, XL, and Z for a standard ferrite part, you are looking at the series equivalent parameters of their
+dominant resonance. For most MnZn materials, it is dimensional resonance, while, for most NiZn materials, it is circuit resonance. 
+
+
